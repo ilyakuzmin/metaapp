@@ -4,20 +4,16 @@ div class="page-header"
 table class="table table-striped"
   thead
     tr
-      th= model_class.human_attribute_name(:id)
-      th= model_class.human_attribute_name(:title)
-      th= model_class.human_attribute_name(:body)
-      th= model_class.human_attribute_name(:user_id)
-      th= model_class.human_attribute_name(:created_at)
-      th=t '.actions', :default => t("helpers.actions")
+      th Title
+      th Body
+      th Created at
+      th
   tbody
     - @posts.each do |post|
       tr
-        td= link_to post.id, post_path(post)
-        td= post.title
+        td= link_to post.title, post_path(post)
         td= post.body
-        td= post.user_id
-        td=l post.created_at
+        td= beauty_datetime post.created_at
         td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_post_path(post), :class => 'btn btn-mini'
           '
