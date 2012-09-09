@@ -15,6 +15,10 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def own
+    @posts = current_user.posts
+  end
+
   def edit
     @post = current_user.posts.find(params[:id])
   end

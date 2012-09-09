@@ -3,7 +3,11 @@ Metaapp::Application.routes.draw do
 
   root :to => 'posts#index'
 
-  resources :posts
+  resources :posts do
+    collection do
+      get 'own'
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
