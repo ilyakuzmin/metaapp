@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
-  respond_to :html
+  respond_to :html, :except => [:up, :down]
 
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
-    @posts = Post.all(:include => :user)
+    @posts = Post.all_ordered
   end
 
   def show
@@ -54,5 +54,21 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to posts_url }
     end
+  end
+
+  def up
+    @post = Post.find(params[:id])
+
+    current_user.up_vote!(@post)
+
+    render 'vote'
+  end
+
+  def down
+    @post = Post.find(params[:id])
+
+    current_user.down_vote!(@post)
+
+    render 'vote'
   end
 end

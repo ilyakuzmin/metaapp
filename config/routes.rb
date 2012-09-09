@@ -7,6 +7,10 @@ Metaapp::Application.routes.draw do
     collection do
       get 'own'
     end
+    member do
+      get 'up'
+      get 'down'
+    end
   end
 
   # The priority is based upon order of creation:
