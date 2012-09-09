@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'slim'
 gem "twitter-bootstrap-rails"
 gem 'devise'
+gem 'make_voteable'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
