@@ -28,9 +28,6 @@ html lang="en"
           a.brand href="#"Metaapp
           .container.nav-collapse
             ul.nav
-              li= link_to "Link 1", "/path1"
-              li= link_to "Link 2", "/path2"
-              li= link_to "Link 3", "/path3"
 
     .container
 
@@ -41,12 +38,7 @@ html lang="en"
             = yield
           .span3
             .well.sidebar-nav
-              h3 Sidebar
-              ul.nav.nav-list
-                li.nav-header Sidebar
-                li= link_to "Link 1", "/path1"
-                li= link_to "Link 2", "/path2"
-                li= link_to "Link 3", "/path3"
+              = render 'share/user_sidebar'
     
       footer
         p &copy; Company 2012
